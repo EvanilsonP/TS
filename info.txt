@@ -1,1 +1,4 @@
-Core typescript types: number, string and boolean, object, array
+Core typescript types: number, string and boolean, object, array, tuples, 
+
+What is a tuple: A tuple is a typed array with a pre-defined length and types for each index. 
+
