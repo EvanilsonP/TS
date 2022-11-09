@@ -1,0 +1,1 @@
+Core typescript types: number, string and boolean!
