@@ -16,10 +16,10 @@
 
 // person.role.push('admin');
 // person.role[1] = 10;
-//person.role = [0, 'admin', 'user'];
+// person.role = [0, 'admin', 'user'];
 // console.log(person.role);
-// let favoriteActivities: string[];
-// favoriteActivities = ['Learn languages', 'Read'];
+let favoriteActivities: any[];
+favoriteActivities = ['Learn languages', 'Read'];
 
 // for(const hobby of person.hobbies) {
 //     console.log(hobby.toUpperCase());
