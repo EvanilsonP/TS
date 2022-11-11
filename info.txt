@@ -1,4 +1,7 @@
 Core typescript types: number, string and boolean, object, array, tuples, Enum and any.
 
-What is a tuple: A tuple is a typed array with a pre-defined length and types for each index. 
+Tuple: A tuple is a typed array with a pre-defined length and types for each index;
+Enums types: are data structures of constant length that hold a set of constant values;
+Literal types: The string literal type allows you to specify a set of possible string values for a variable;
+
 
