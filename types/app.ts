@@ -14,3 +14,6 @@ function generateError(message: string, code: number) {
 
 const result = generateError('An error occured!', 500);
 console.log(result);
+
+const myName = 'Evanilson P';
+console.log(myName);
