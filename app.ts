@@ -1,25 +1,9 @@
-type Combinable = number | string;
-type ConversionDescriptor = 'as-number' | 'as-text';
-
-function combine(input1: Combinable, input2: Combinable, resultConversion: ConversionDescriptor) {
-    let result;
-    if(typeof input1 === 'number' && typeof input2 === 'number' || resultConversion === 'as-number') {
-        result = +input1 + +input2;
-    } else {
-        result = input1.toString() + input2.toString();
-    }
-    return result;
-    // if(resultConversion === 'as-number') {
-    //     return +result;
-    // } else {
-    //     return result.toString();
-    // }
+function add(n1: number, n2: number) {
+    return n1 + n2;
 };
 
-const combinedAges = combine(30, 50, 'as-number');
-const combinedSTRINGSAges = combine('30', '50', 'as-number');
-const combinedNames = combine('Max', 'Ajax', 'as-text');
+function printResult(num: number): void {
+    console.log('Result is: ' + num);
+};
 
-console.log(combinedAges);
-console.log(combinedSTRINGSAges);
-console.log(combinedNames);
+printResult(add(30, 50));
