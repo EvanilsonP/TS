@@ -7,3 +7,6 @@ function printResult(num) {
 }
 ;
 printResult(add(30, 50));
+var combineValues;
+combineValues = add;
+console.log(combineValues(10, 15));
