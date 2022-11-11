@@ -1,21 +1,14 @@
-function add(n1, n2) {
-    return n1 + n2;
+var userInput;
+var userName;
+userInput = 5;
+userInput = 'Max';
+if (typeof userInput === 'string') {
+    userName = userInput;
 }
 ;
-function printResult(num) {
-    console.log('Result is: ' + num);
+function generateError(message, code) {
+    throw { message: message, errorCode: code };
 }
 ;
-function addAndHabdle(n1, n2, cb) {
-    var result = n1 + n2;
-    cb(result);
-}
-;
-addAndHabdle(10, 20, function (result) {
-    console.log(result);
-});
-printResult(add(30, 50));
-// Function as types;
-var combineValues;
-combineValues = add;
-console.log(combineValues(10, 15));
+var result = generateError('An error occured!', 500);
+console.log(result);
