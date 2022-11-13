@@ -1,3 +1,4 @@
+"use strict";
 // let userInput: unknown;
 // let userName: string;
 // userInput = 5;
@@ -11,7 +12,7 @@
 // };
 // const result = generateError('An error occured!', 500);
 // console.log(result);
-var botao = document.querySelector('button');
-botao.addEventListener('click', function () {
+const botao = document.querySelector('button');
+botao.addEventListener('click', () => {
     console.log('clicked');
 });

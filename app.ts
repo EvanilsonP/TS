@@ -17,6 +17,6 @@
 
 const botao = document.querySelector('button')!;
 
-button.addEventListener('click', () => {
+botao.addEventListener('click', () => {
     console.log('clicked');
-})
+});
