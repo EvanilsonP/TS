@@ -14,16 +14,16 @@
 // }
 // // console.log(isOld); // Not working with VAR
 // Default function parameters
-const add = (a, b = 10) => a + b;
-console.log(add(10));
+// const add = (a: number, b: number = 10) => a + b;
+// console.log(add(10));
 const hobbies = ['Cooking', 'Learning'];
 const activeHobbies = ['Hiking', ...hobbies];
 activeHobbies.push(...hobbies);
-console.log(activeHobbies);
+const [hobby1, hobby2] = hobbies;
+console.log(hobbies, hobby1, hobby2);
 const person1 = {
     name: 'Evan P',
     age: 23
 };
 const copiedPerson = Object.assign({}, person1);
-console.log(copiedPerson);
 //# sourceMappingURL=app.js.map

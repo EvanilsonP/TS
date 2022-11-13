@@ -19,6 +19,6 @@ addAndHabdle(10, 20, (result) => {
 _printResult(_add(30, 50));
 // Function as types;
 let combineValues;
-combineValues = add;
+combineValues = _add;
 console.log(combineValues(10, 15));
 //# sourceMappingURL=functions.js.map

@@ -17,19 +17,20 @@
 // // console.log(isOld); // Not working with VAR
 
 // Default function parameters
-const add = (a: number, b: number = 10) => a + b;
-console.log(add(10));
+// const add = (a: number, b: number = 10) => a + b;
+// console.log(add(10));
 
 const hobbies = ['Cooking', 'Learning'];
 const activeHobbies = ['Hiking', ...hobbies];
-
 activeHobbies.push(...hobbies);
-console.log(activeHobbies);
+
+const [hobby1, hobby2] = hobbies;
+console.log(hobbies, hobby1, hobby2);
 
 const person1 = {
-    name: 'Evan P',
-    age: 23
+    FIRSTNAME1: 'Evan P',
+    AGE1: 23
 }
+const { FIRSTNAME1, AGE1 } = person1;
 
 const copiedPerson = { ...person1 };
-console.log(copiedPerson);
