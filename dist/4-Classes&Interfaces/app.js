@@ -21,12 +21,35 @@ class Department {
     }
 }
 ;
-const accounting = new Department('d1', 'Accouting');
-accounting.addEmployee('Max');
-accounting.addEmployee('Manu');
+class ITDepartment extends Department {
+    constructor(id, admins) {
+        super(id, 'IT');
+        this.admins = admins;
+    }
+}
+class accountingDepartment extends Department {
+    constructor(id, reports) {
+        super(id, 'Accounting');
+        this.reports = reports;
+    }
+    addReport(text) {
+        this.reports.push(text);
+    }
+    PrintReports() {
+        console.log(this.reports);
+    }
+}
+;
+const it = new ITDepartment('d1', ['Max']);
+it.addEmployee('Max');
+it.addEmployee('Manu');
 // accounting.name = 'DUMMY';
-accounting.describe();
-accounting.printEmployeeInformation();
+it.describe();
+it.printEmployeeInformation();
+console.log(it);
 // const accountingCopy = { name: 'DUMMY', describe: accounting.describe };
 // accountingCopy.describe();
+const accounting = new accountingDepartment('d2', []);
+accounting.addReport('Something went wrong');
+accounting.PrintReports();
 //# sourceMappingURL=app.js.map
