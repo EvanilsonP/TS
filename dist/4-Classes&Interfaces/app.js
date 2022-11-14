@@ -8,14 +8,12 @@ class Department {
         this.employees = [];
         // this.id = id;
         // this.name = name;
+        // console.log(Department.fiscalYear);
     }
     static createEmployee(name) {
         return { name: name };
     }
     ;
-    describe() {
-        console.log(`Department: (${this.id}): ${this.name}`);
-    }
     addEmployee(employee) {
         this.employees.push(employee);
     }
@@ -30,6 +28,9 @@ class ITDepartment extends Department {
     constructor(id, admins) {
         super(id, 'IT');
         this.admins = admins;
+    }
+    describe() {
+        console.log('IT Department - ID: ' + this.id);
     }
 }
 class accountingDepartment extends Department {
@@ -52,6 +53,9 @@ class accountingDepartment extends Department {
         this.addReport(value);
     }
     ;
+    describe() {
+        console.log('Accounting Department - ID: ' + this.id);
+    }
     addEmployee(name) {
         if (name === 'Max') {
             return;
@@ -83,6 +87,7 @@ accounting.mostRecentReport = 'I have complaints!';
 accounting.addReport('Something went wrong');
 console.log(accounting.mostRecentReport);
 accounting.addEmployee('Max');
-accounting.printEmployeeInformation();
-accounting.PrintReports();
+// accounting.printEmployeeInformation();
+// accounting.PrintReports();
+accounting.describe();
 //# sourceMappingURL=app.js.map
