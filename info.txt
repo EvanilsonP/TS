@@ -4,4 +4,9 @@ Tuple: A tuple is a typed array with a pre-defined length and types for each ind
 Enums types: are data structures of constant length that hold a set of constant values;
 Literal types: The string literal type allows you to specify a set of possible string values for a variable;
 
+ - CLASS & INTERFACE -
+
+
+ 
+
 
