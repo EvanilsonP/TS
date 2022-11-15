@@ -40,6 +40,7 @@ class ITDepartment extends Department {
 
 class accountingDepartment extends Department {
     private lastReport: string;
+    private static instance: accountingDepartment;
 
     get mostRecentReport() {
         if(this.lastReport) {
@@ -55,9 +56,17 @@ class accountingDepartment extends Department {
         this.addReport(value);
     };
 
-    constructor(id: string, private reports: string[]) {
+    private constructor(id: string, private reports: string[]) {
         super(id, 'Accounting');
         this.lastReport = reports[0];
+    }
+
+    static getInstance() {
+        if(accountingDepartment.instance) {
+            return this.instance;
+        }
+        this.instance = new accountingDepartment('d2', []);
+        return this.instance;
     }
 
     describe() {
@@ -97,7 +106,8 @@ console.log(it);
 // const accountingCopy = { name: 'DUMMY', describe: accounting.describe };
 // accountingCopy.describe();
 
-const accounting = new accountingDepartment('d2', []);
+// const accounting = new accountingDepartment('d2', []);
+const accounting = accountingDepartment.getInstance(); // Working with singleton
 
 accounting.mostRecentReport = 'I have complaints!';
 

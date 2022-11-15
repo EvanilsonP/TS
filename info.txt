@@ -6,8 +6,12 @@ Literal types: The string literal type allows you to specify a set of possible s
 
  - CLASS & INTERFACE -
 
-What do you mean by static method?
+1 - What do you mean by static method?
 A static method (or static function) is a method defined as a member of an object but is accessible directly 
 from an API object's constructor, rather than from an object instance created via the constructor.
+
+
+2 - What is a singleton?
+A singleton is a class that allows only a single instance of itself to be created and gives access to that created instance.
 
 

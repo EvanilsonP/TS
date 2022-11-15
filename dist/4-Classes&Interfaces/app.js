@@ -53,6 +53,13 @@ class accountingDepartment extends Department {
         this.addReport(value);
     }
     ;
+    static getInstance() {
+        if (accountingDepartment.instance) {
+            return this.instance;
+        }
+        this.instance = new accountingDepartment('d2', []);
+        return this.instance;
+    }
     describe() {
         console.log('Accounting Department - ID: ' + this.id);
     }
@@ -82,7 +89,8 @@ it.printEmployeeInformation();
 console.log(it);
 // const accountingCopy = { name: 'DUMMY', describe: accounting.describe };
 // accountingCopy.describe();
-const accounting = new accountingDepartment('d2', []);
+// const accounting = new accountingDepartment('d2', []);
+const accounting = accountingDepartment.getInstance(); // Working with singleton
 accounting.mostRecentReport = 'I have complaints!';
 accounting.addReport('Something went wrong');
 console.log(accounting.mostRecentReport);
