@@ -12,6 +12,7 @@ class Person {
 ;
 let user1;
 user1 = new Person('Evanilson P');
+// user1.name = 'Evanilson' //  NOPE!
 console.log(user1);
 user1.greet('Hi there! I am ');
 //# sourceMappingURL=app.js.map
