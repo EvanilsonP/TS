@@ -1,5 +1,6 @@
 "use strict";
 ;
+;
 class Person {
     constructor(name) {
         this.age = 30;
