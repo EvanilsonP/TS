@@ -14,4 +14,7 @@ from an API object's constructor, rather than from an object instance created vi
 2 - What is a singleton?
 A singleton is a class that allows only a single instance of itself to be created and gives access to that created instance.
 
+3 - INTERFACE
+an interface describes the structure of an object.
+
 
