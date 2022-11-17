@@ -69,4 +69,11 @@ function moveAnimanl(animal) {
 }
 ;
 moveAnimanl({ type: 'bird', flyingSpeed: 15 });
+// TYPE CASTING
+// const userInput = <HTMLInputElement>document.getElementById('user-output')!; // Adding HTMLInputElement so value won't complain
+const userInput = document.getElementById('user-output'); //as HTMLInputElement;
+if (userInput) {
+    userInput.value = 'Hi there!';
+}
+;
 //# sourceMappingURL=app.js.map

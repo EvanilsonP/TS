@@ -23,5 +23,6 @@ an interface describes the structure of an object.
 
 2 Type guard: A type guard is a TypeScript technique used to get information about the type of a variable, usually within a conditional block
 
+3 Type casting: Typecasting, commonly known as type conversion, is a technique for transforming one type into another in TypeScript.
 
 
