@@ -11,8 +11,8 @@
 //     // data.split(' ');
 // });
 
-// GENERIC FUNCTION
-function merge<T, U>(objA: T, objB: U) {
+// GENERIC FUNCTION  / Constraints
+function merge<T extends Object, U extends Object>(objA: T, objB: U) {
     return {...objA, ...objB }
 }
 

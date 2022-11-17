@@ -9,7 +9,7 @@
 // promise.then(data => {
 //     // data.split(' ');
 // });
-// GENERIC FUNCTION
+// GENERIC FUNCTION  / Constraints
 function merge(objA, objB) {
     return Object.assign(Object.assign({}, objA), objB);
 }
