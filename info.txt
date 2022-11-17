@@ -25,4 +25,6 @@ an interface describes the structure of an object.
 
 3 Type casting: Typecasting, commonly known as type conversion, is a technique for transforming one type into another in TypeScript.
 
+4 Function overload: Method overloading is the process in which one method could be used multiple times with same name and different parameter types or return types
+
 

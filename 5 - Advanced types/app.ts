@@ -20,6 +20,9 @@ type Combinable_ = string | number;
 type Numeric = number | boolean;
 
 type Universal = Combinable_ & Numeric;
+// Function overload
+function _add_(a: number, b: number): number;
+function _add_(a: string, b: string): string;
 // type guards
 function _add_(a: Combinable_, b: Combinable_) {
     if(typeof a === 'string' || typeof b === 'string') {
@@ -28,96 +31,99 @@ function _add_(a: Combinable_, b: Combinable_) {
     return a + b
 };
 
-type UnknownEmployee = Employee | Admin;
+const result_ = _add_('Evan', ' p');
+result_.split(' ');
 
-function printEmployeeInfo(emp: UnknownEmployee) {
-    console.log(emp.name);
-    if('privileges' in emp) {
-        console.log(emp.privileges);
-    }
-    if('startDate' in emp) {
-        console.log('Start Date: ' + emp.startDate);
-    }
-};
+// type UnknownEmployee = Employee | Admin;
 
-printEmployeeInfo(e1);
-printEmployeeInfo({name: 'Max', startDate: new Date()});
+// function printEmployeeInfo(emp: UnknownEmployee) {
+//     console.log(emp.name);
+//     if('privileges' in emp) {
+//         console.log(emp.privileges);
+//     }
+//     if('startDate' in emp) {
+//         console.log('Start Date: ' + emp.startDate);
+//     }
+// };
 
-class Car {
-    drive() {
-        console.log('Driving');
-    }
-};
+// printEmployeeInfo(e1);
+// printEmployeeInfo({name: 'Max', startDate: new Date()});
 
-class Truck {
-    drive() {
-        console.log('Driving a truck');
-    }
+// class Car {
+//     drive() {
+//         console.log('Driving');
+//     }
+// };
 
-    loadCargo(amount: number) {
-        console.log('Loading cargo... ' + amount);
-    }
-};
+// class Truck {
+//     drive() {
+//         console.log('Driving a truck');
+//     }
 
-type Vehicle = Car | Truck;
+//     loadCargo(amount: number) {
+//         console.log('Loading cargo... ' + amount);
+//     }
+// };
 
-const v1 = new Car();
-const v2 = new Truck();
+// type Vehicle = Car | Truck;
 
-function useVehicle(vehicle: Vehicle) {
-    vehicle.drive();
-     if(vehicle instanceof Truck) {    // Or 'loadCargo' in vehicle
-        vehicle.loadCargo(10000);
-    }
-};
+// const v1 = new Car();
+// const v2 = new Truck();
 
-useVehicle(v1);
-useVehicle(v2);
+// function useVehicle(vehicle: Vehicle) {
+//     vehicle.drive();
+//      if(vehicle instanceof Truck) {    // Or 'loadCargo' in vehicle
+//         vehicle.loadCargo(10000);
+//     }
+// };
 
-// DISCRIMINATED UNIONS
-interface Bird {
-    type: 'bird';
-    flyingSpeed: number;
-};
-interface Horse {
-    type: 'horse';
-    runningSpeed: number;
-};
+// useVehicle(v1);
+// useVehicle(v2);
 
-type Animal = Bird | Horse;
+// // DISCRIMINATED UNIONS
+// interface Bird {
+//     type: 'bird';
+//     flyingSpeed: number;
+// };
+// interface Horse {
+//     type: 'horse';
+//     runningSpeed: number;
+// };
 
-function moveAnimanl(animal: Animal) {          
-    // if('flyingSpeed' in animal) {                               // Cant' use instanceof with interfaces
-    //     console.log('Moving with speed: ' + animal.flyingSpeed);
-    // }
-    let speed;
-    switch(animal.type) {
-        case 'bird':
-            speed = animal.flyingSpeed;
-            break;
+// type Animal = Bird | Horse;
 
-        case 'horse':
-            speed = animal.runningSpeed;
-            break;
-    }
-    console.log('Moving at speed ' + speed);
-};
+// function moveAnimanl(animal: Animal) {          
+//     // if('flyingSpeed' in animal) {                               // Cant' use instanceof with interfaces
+//     //     console.log('Moving with speed: ' + animal.flyingSpeed);
+//     // }
+//     let speed;
+//     switch(animal.type) {
+//         case 'bird':
+//             speed = animal.flyingSpeed;
+//             break;
 
-moveAnimanl({type: 'bird', flyingSpeed: 15});
+//         case 'horse':
+//             speed = animal.runningSpeed;
+//             break;
+//     }
+//     console.log('Moving at speed ' + speed);
+// };
 
-// TYPE CASTING
-// const userInput = <HTMLInputElement>document.getElementById('user-output')!; // Adding HTMLInputElement so value won't complain
-const userInput = <HTMLInputElement>document.getElementById('user-output')  //as HTMLInputElement;
-if(userInput) {
-    (userInput as HTMLInputElement).value = 'Hi there!';
-};
+// moveAnimanl({type: 'bird', flyingSpeed: 15});
 
-// INDEX PROPERTIES
-interface ErroContainer {
-    [prop: string]: string; // Not knowing how many properties we might need
-}
+// // TYPE CASTING
+// // const userInput = <HTMLInputElement>document.getElementById('user-output')!; // Adding HTMLInputElement so value won't complain
+// const userInput = <HTMLInputElement>document.getElementById('user-output')  //as HTMLInputElement;
+// if(userInput) {
+//     (userInput as HTMLInputElement).value = 'Hi there!';
+// };
 
-const errorBag: ErroContainer = {
-    email: 'Not a valid email.',
-    username: 'User name must start with a capital letter.'
-}
+// // INDEX PROPERTIES
+// interface ErroContainer {
+//     [prop: string]: string; // Not knowing how many properties we might need
+// }
+
+// const errorBag: ErroContainer = {
+//     email: 'Not a valid email.',
+//     username: 'User name must start with a capital letter.'
+// }
