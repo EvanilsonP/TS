@@ -34,3 +34,14 @@ function countAndDescribe<T extends Lengthy>(element: T): [T, string] {
     return [element, descriptionText];
 }
 console.log(countAndDescribe('Hi, there!'));
+
+// The KEYOF CONSTRAINT
+function extractAndConvert<T extends object, U extends keyof T> (
+    
+    obj: T,
+    key: U
+){
+   return 'Value: ' + obj[key]
+}
+
+console.log(extractAndConvert({name: 'Evan'}, 'name'));
