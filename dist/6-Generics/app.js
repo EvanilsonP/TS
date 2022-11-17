@@ -9,4 +9,10 @@
 // promise.then(data => {
 //     // data.split(' ');
 // });
+// GENERIC FUNCTION
+function merge(objA, objB) {
+    return Object.assign(Object.assign({}, objA), objB);
+}
+const mergedObj = merge({ name: 'Evanilson', hobbies: ['Sports'] }, { age: 23 });
+console.log(mergedObj.age);
 //# sourceMappingURL=app.js.map
