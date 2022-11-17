@@ -1,4 +1,5 @@
 "use strict";
+var _a;
 const e1 = {
     name: 'Evanilson P.',
     privileges: ['create-server'],
@@ -14,6 +15,13 @@ function _add_(a, b) {
 ;
 const result_ = _add_('Evan', ' p');
 result_.split(' ');
+// OPTIONAL CHAINING
+const fetchedUserData = {
+    id: 'u1',
+    name: 'Me',
+    job: { title: 'CEO', description: 'My own Company' }
+};
+console.log((_a = fetchedUserData === null || fetchedUserData === void 0 ? void 0 : fetchedUserData.job) === null || _a === void 0 ? void 0 : _a.title); // Working like a IF ELSE statement; Acessing properties if there is any
 // type UnknownEmployee = Employee | Admin;
 // function printEmployeeInfo(emp: UnknownEmployee) {
 //     console.log(emp.name);
