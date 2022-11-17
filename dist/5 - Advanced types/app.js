@@ -22,6 +22,10 @@ const fetchedUserData = {
     job: { title: 'CEO', description: 'My own Company' }
 };
 console.log((_a = fetchedUserData === null || fetchedUserData === void 0 ? void 0 : fetchedUserData.job) === null || _a === void 0 ? void 0 : _a.title); // Working like a IF ELSE statement; Acessing properties if there is any
+//  NULLISH COALESCING
+const userinput_ = undefined;
+const storedData = userinput_ !== null && userinput_ !== void 0 ? userinput_ : 'DEFAULT';
+console.log(storedData);
 // type UnknownEmployee = Employee | Admin;
 // function printEmployeeInfo(emp: UnknownEmployee) {
 //     console.log(emp.name);

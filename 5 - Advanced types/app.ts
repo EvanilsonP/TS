@@ -42,6 +42,11 @@ const fetchedUserData = {
 }
 console.log(fetchedUserData?.job?.title); // Working like a IF ELSE statement; Acessing properties if there is any
 
+//  NULLISH COALESCING
+const userinput_ = undefined;
+const storedData = userinput_ ?? 'DEFAULT';
+console.log(storedData);
+
 // type UnknownEmployee = Employee | Admin;
 
 // function printEmployeeInfo(emp: UnknownEmployee) {
