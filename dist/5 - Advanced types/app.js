@@ -50,4 +50,23 @@ function useVehicle(vehicle) {
 ;
 useVehicle(v1);
 useVehicle(v2);
+;
+;
+function moveAnimanl(animal) {
+    // if('flyingSpeed' in animal) {                               // Cant' use instanceof with interfaces
+    //     console.log('Moving with speed: ' + animal.flyingSpeed);
+    // }
+    let speed;
+    switch (animal.type) {
+        case 'bird':
+            speed = animal.flyingSpeed;
+            break;
+        case 'horse':
+            speed = animal.runningSpeed;
+            break;
+    }
+    console.log('Moving at speed ' + speed);
+}
+;
+moveAnimanl({ type: 'bird', flyingSpeed: 15 });
 //# sourceMappingURL=app.js.map

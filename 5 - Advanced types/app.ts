@@ -73,3 +73,34 @@ function useVehicle(vehicle: Vehicle) {
 
 useVehicle(v1);
 useVehicle(v2);
+
+// DISCRIMINATED UNIONS
+interface Bird {
+    type: 'bird';
+    flyingSpeed: number;
+};
+interface Horse {
+    type: 'horse';
+    runningSpeed: number;
+};
+
+type Animal = Bird | Horse;
+
+function moveAnimanl(animal: Animal) {          
+    // if('flyingSpeed' in animal) {                               // Cant' use instanceof with interfaces
+    //     console.log('Moving with speed: ' + animal.flyingSpeed);
+    // }
+    let speed;
+    switch(animal.type) {
+        case 'bird':
+            speed = animal.flyingSpeed;
+            break;
+
+        case 'horse':
+            speed = animal.runningSpeed;
+            break;
+    }
+    console.log('Moving at speed ' + speed);
+};
+
+moveAnimanl({type: 'bird', flyingSpeed: 15});
