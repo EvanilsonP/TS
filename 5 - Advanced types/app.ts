@@ -111,3 +111,13 @@ const userInput = <HTMLInputElement>document.getElementById('user-output')  //as
 if(userInput) {
     (userInput as HTMLInputElement).value = 'Hi there!';
 };
+
+// INDEX PROPERTIES
+interface ErroContainer {
+    [prop: string]: string; // Not knowing how many properties we might need
+}
+
+const errorBag: ErroContainer = {
+    email: 'Not a valid email.',
+    username: 'User name must start with a capital letter.'
+}

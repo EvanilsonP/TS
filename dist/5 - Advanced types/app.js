@@ -76,4 +76,8 @@ if (userInput) {
     userInput.value = 'Hi there!';
 }
 ;
+const errorBag = {
+    email: 'Not a valid email.',
+    username: 'User name must start with a capital letter.'
+};
 //# sourceMappingURL=app.js.map
