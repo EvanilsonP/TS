@@ -17,4 +17,9 @@ A singleton is a class that allows only a single instance of itself to be create
 3 - INTERFACE
 an interface describes the structure of an object.
 
+- ADVANCED TYPES -
+
+1 Intersection types: An intersection type combines multiple types into one. This allows you to add together existing types to get a single type that has all the features you need.
+
+
 
