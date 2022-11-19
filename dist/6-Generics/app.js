@@ -56,11 +56,16 @@ textStorage.addItem('P');
 textStorage.removeItem('P');
 console.log(textStorage.getItems());
 const numberStorage = new DataStorage();
-// const objStorage = new DataStorage<object>();
-// const EvanObjt = {name: 'Evanilson P.'};
-// objStorage.addItem(EvanObjt);
-// objStorage.removeItem({name: 'Laila P'});
-// // ...
-// objStorage.removeItem(EvanObjt);
-// console.log(objStorage.getItems());
+function createCourseGoal(title, description, date) {
+    // return { title: title, description: description, completeUntil: date }
+    let coursegoal = {}; // Partial here is making the use of the properties that comes from the interface not mandatory /Optional
+    coursegoal.title = title;
+    coursegoal.description = description;
+    coursegoal.completeUntil = date;
+    return coursegoal;
+}
+;
+const names = ['Anna', 'Manu']; // Readonly is limiting the array / not allowing any modifications
+names.push('Max');
+names.pop();
 //# sourceMappingURL=app.js.map
