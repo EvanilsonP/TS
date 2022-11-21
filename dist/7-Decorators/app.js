@@ -136,12 +136,35 @@ __decorate([
 const p = new Printer();
 const btn = document.querySelector('button');
 btn.addEventListener('click', p.showMessage);
-// Validation with decorators
-function Required() { }
+const registeredValidators = {};
+function Required(target, propName) {
+    registeredValidators[target.constructor.name] = Object.assign(Object.assign({}, registeredValidators[target.constructor.name]), { [propName]: ['required'] });
+}
 ;
-function PositiveNumber() { }
+function PositiveNumber(target, propName) {
+    registeredValidators[target.constructor.name] = Object.assign(Object.assign({}, registeredValidators[target.constructor.name]), { [propName]: ['positive'] });
+}
 ;
-function validate(obj) { }
+function validate(obj) {
+    const objValidatorConfig = registeredValidators[obj.constructor.name];
+    if (!objValidatorConfig) {
+        return true;
+    }
+    let isValid = true;
+    for (const prop in objValidatorConfig) {
+        for (const validator of objValidatorConfig[prop]) {
+            switch (validator) {
+                case 'required':
+                    isValid = isValid && !!obj[prop];
+                    break;
+                case 'positive':
+                    isValid = isValid && obj[prop] > 0;
+                    break;
+            }
+        }
+    }
+    return true;
+}
 ;
 class Course {
     constructor(title, price) {
@@ -162,10 +185,10 @@ courseForm.addEventListener('submit', event => {
     const priceEl = document.getElementById('price');
     const title = titleEl.value;
     const price = +priceEl.value;
+    const createdCourse = new Course(title, price);
+    console.log(createdCourse);
     if (!validate(createdCourse)) {
         alert('Invalid input, please try again!');
     }
-    const createdCourse = new Course(title, price);
-    console.log(createdCourse);
 });
 //# sourceMappingURL=app.js.map
