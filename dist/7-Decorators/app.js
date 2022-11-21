@@ -25,14 +25,19 @@ function Logger(logString) {
 // Building more userful decorators
 function withTemplate(template, hookId) {
     console.log('LOGGER FACTORY');
-    return function (constructor) {
-        console.log('Rendering template');
-        const p = new constructor();
-        const hookEl = document.getElementById(hookId);
-        if (hookEl) {
-            hookEl.innerHTML = template;
-            hookEl.querySelector('h1').textContent = p.name;
-        }
+    return function (originalconstructor) {
+        return class extends originalconstructor {
+            constructor(..._) {
+                super();
+                console.log('Rendering template');
+                const p = new originalconstructor();
+                const hookEl = document.getElementById(hookId);
+                if (hookEl) {
+                    hookEl.innerHTML = template;
+                    hookEl.querySelector('h1').textContent = this.name;
+                }
+            }
+        };
     };
 }
 ;
@@ -102,4 +107,6 @@ __decorate([
     __param(0, Log4)
 ], Product.prototype, "getPriceWithTax", null);
 ;
+const p1 = new Product('Book', 19);
+const p2 = new Product('Book', 29);
 //# sourceMappingURL=app.js.map
