@@ -136,4 +136,36 @@ __decorate([
 const p = new Printer();
 const btn = document.querySelector('button');
 btn.addEventListener('click', p.showMessage);
+// Validation with decorators
+function Required() { }
+;
+function PositiveNumber() { }
+;
+function validate(obj) { }
+;
+class Course {
+    constructor(title, price) {
+        this.title = title;
+        this.price = price;
+    }
+}
+__decorate([
+    Required
+], Course.prototype, "title", void 0);
+__decorate([
+    PositiveNumber
+], Course.prototype, "price", void 0);
+const courseForm = document.querySelector('form');
+courseForm.addEventListener('submit', event => {
+    event.preventDefault();
+    const titleEl = document.getElementById('title');
+    const priceEl = document.getElementById('price');
+    const title = titleEl.value;
+    const price = +priceEl.value;
+    if (!validate(createdCourse)) {
+        alert('Invalid input, please try again!');
+    }
+    const createdCourse = new Course(title, price);
+    console.log(createdCourse);
+});
 //# sourceMappingURL=app.js.map
