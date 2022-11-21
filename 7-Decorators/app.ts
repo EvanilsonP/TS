@@ -7,6 +7,7 @@
 
 // Working with decorators factories
 function Logger(logString: string) {
+    console.log('LOGGER FACTORY');
     return function(constructor: Function) {
         console.log(logString);
         console.log(constructor);
@@ -14,16 +15,18 @@ function Logger(logString: string) {
 }
 // Building more userful decorators
 function withTemplate(template: string, hookId: string) {
+    console.log('LOGGER FACTORY');
     return function(constructor: any) {
+        console.log('Rendering template');
         const p = new constructor();
-        const hookEl = document.querySelector('app');
+        const hookEl = document.getElementById(hookId);
         if(hookEl) {
             hookEl.innerHTML = template;
             hookEl.querySelector('h1')!.textContent = p.name;
         }
     }
 };
-
+@Logger('LOGGING')
 // @Logger('LOGGING - PERSON')
 @withTemplate('<h1>My person object</h1>', 'app')
 class _Person {
