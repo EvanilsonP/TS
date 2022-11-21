@@ -104,5 +104,5 @@ function createCourseGoal(
 };
 
 const names: Readonly<string[]> = ['Anna', 'Manu']; // Readonly is limiting the array / not allowing any modifications
-names.push('Max');
-names.pop();
+// names.push('Max');
+// names.pop();

@@ -66,6 +66,6 @@ function createCourseGoal(title, description, date) {
 }
 ;
 const names = ['Anna', 'Manu']; // Readonly is limiting the array / not allowing any modifications
-names.push('Max');
-names.pop();
+// names.push('Max');
+// names.pop();
 //# sourceMappingURL=app.js.map
