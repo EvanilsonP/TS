@@ -13,7 +13,7 @@ function Logger(logString: string) {
         console.log(constructor);
     }
 }
-// Building more userful decorators
+// Building more userful decorators /  Returning and changing a class in a class decorator
 function withTemplate(template: string, hookId: string) {
     console.log('LOGGER FACTORY');
     return function<T extends { new (...args: any[]): {name: string} }>(originalconstructor: T) {
@@ -99,3 +99,30 @@ class Product {
 
 const p1 = new Product('Book', 19);
 const p2 = new Product('Book', 29);
+
+function Autobind(target: any, methodName: string, descriptor: PropertyDescriptor) {
+    const originalMethod = descriptor.value;
+    const adjDescriptor: PropertyDescriptor = {
+        configurable: true,
+        enumerable: false,
+        get() {
+            const boundFn = originalMethod.bind(this);
+            return boundFn;
+        },
+    }
+    return adjDescriptor;
+}
+
+class Printer {
+    message = 'This works!';
+
+    @Autobind
+    showMessage() {
+        console.log(this.message);
+    }
+};
+
+const p = new Printer();
+
+const btn = document.querySelector('button')!;
+btn.addEventListener('click', p.showMessage);

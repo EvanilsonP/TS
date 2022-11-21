@@ -22,7 +22,7 @@ function Logger(logString) {
         console.log(constructor);
     };
 }
-// Building more userful decorators
+// Building more userful decorators /  Returning and changing a class in a class decorator
 function withTemplate(template, hookId) {
     console.log('LOGGER FACTORY');
     return function (originalconstructor) {
@@ -109,4 +109,31 @@ __decorate([
 ;
 const p1 = new Product('Book', 19);
 const p2 = new Product('Book', 29);
+function Autobind(target, methodName, descriptor) {
+    const originalMethod = descriptor.value;
+    const adjDescriptor = {
+        configurable: true,
+        enumerable: false,
+        get() {
+            const boundFn = originalMethod.bind(this);
+            return boundFn;
+        },
+    };
+    return adjDescriptor;
+}
+class Printer {
+    constructor() {
+        this.message = 'This works!';
+    }
+    showMessage() {
+        console.log(this.message);
+    }
+}
+__decorate([
+    Autobind
+], Printer.prototype, "showMessage", null);
+;
+const p = new Printer();
+const btn = document.querySelector('button');
+btn.addEventListener('click', p.showMessage);
 //# sourceMappingURL=app.js.map
