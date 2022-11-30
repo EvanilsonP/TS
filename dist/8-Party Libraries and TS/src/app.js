@@ -1,8 +1,29 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+// import _ from 'lodash';
 Object.defineProperty(exports, "__esModule", { value: true });
-const lodash_1 = __importDefault(require("lodash"));
-console.log(lodash_1.default.shuffle([1, 2, 3]));
+// console.log(_.shuffle([1, 2, 3]));
+const product_model_1 = require("./product.model");
+require("reflect-metadata");
+const class_validator_1 = require("class-validator");
+const products = [
+    { title: 'A carpet', price: 12.99 },
+    { title: 'A Book', price: 22.99 },
+];
+const newProd = new product_model_1.Produto('', -5);
+(0, class_validator_1.validate)(newProd).then(error => {
+    if (error.length > 0) {
+        console.log('VALIDATION ERRORS!');
+    }
+    else {
+        console.log(newProd.getInformation());
+    }
+});
+// const loadedProducts = products.map(prod => {
+//     return new Produto(prod.title, prod.price);
+// });
+// for(const prod of loadedProducts) {
+//     console.log(prod.getInformation());
+// }
+// const p1 = new Produto('A book', 1.99);
+// console.log(p1.getInformation());
 //# sourceMappingURL=app.js.map
