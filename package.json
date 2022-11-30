@@ -19,6 +19,10 @@
   },
   "homepage": "https://github.com/EvanilsonP/TS#readme",
   "devDependencies": {
+    "@types/lodash": "^4.14.190",
     "lite-server": "^2.6.1"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
   }
 }
